@@ -9,7 +9,7 @@ public class HelloController {
             @PathVariable(name = "name") String name) {
         return "Hello " + name;
     }
-
+    // Test change
     @RequestMapping(method = RequestMethod.POST, value = "/signin")
     public String singIn(@RequestParam(name = "username") String username, @RequestParam(name = "password") String password) {
         if(username.equals("rei") && password.equals("12345" )) {
