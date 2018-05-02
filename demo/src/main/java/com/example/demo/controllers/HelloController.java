@@ -20,4 +20,11 @@ public class HelloController {
         }
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/develop")
+    public String develop() {
+        return "Branch develop";
+    }
+
+
+
 }
