@@ -12,7 +12,7 @@ public class User extends AbstractBase {
 
     @Column(unique = true, nullable = false, length = 20)
     private String username;
-    @Column(length = 30)
+    @Column(length = 255)
     private String password;
 
     public String getUsername() {

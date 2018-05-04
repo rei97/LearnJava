@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.domain.User;
 import com.example.demo.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,12 +17,13 @@ public class HelloController {
     }
     // Test change
     @RequestMapping(method = RequestMethod.POST, value = "/signin")
-    public String singIn(@RequestParam(name = "username") String username, @RequestParam(name = "password") String password) {
-        if(username.equals("rei") && password.equals("12345" )) {
-            return "Authenticated";
-        } else {
-            return "Not Authenticated ";
-        }
+    public Boolean singIn(@RequestParam(name = "username") String username, @RequestParam(name = "password") String password) {
+       return userService.isAuthenticated(username, password);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/signup")
+    public void signUp(@RequestParam(name = "username") String username, @RequestParam(name = "password") String password) {
+        userService.saveUser(username,password);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/develop")
